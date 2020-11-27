@@ -46,7 +46,7 @@ export default {
             if(this.chat.body != null){
                 axios.post('/api/chat', this.chat);
                 // .then((res) => {
-                //     this.$router.push({name: 'task.chat.create'});
+                //     this.$router.push({name: 'task.chat.create'}); // このnameのpathに移行
                 // });
                 this.chat = {};
                 this.getMessages();
@@ -61,6 +61,11 @@ export default {
     },
     mounted() {
         this.getMessages();
+        Echo.channel('chat')
+            .listen('MessageCreated', (e) => {
+                this.getMessages(); // 全メッセージを再読込
+            });
+
     },
 }
 </script>

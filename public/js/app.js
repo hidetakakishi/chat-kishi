@@ -2022,7 +2022,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       if (this.chat.body != null) {
         axios.post('/api/chat', this.chat); // .then((res) => {
-        //     this.$router.push({name: 'task.chat.create'});
+        //     this.$router.push({name: 'task.chat.create'}); // このnameのpathに移行
         // });
 
         this.chat = {};
@@ -2038,7 +2038,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    var _this3 = this;
+
     this.getMessages();
+    Echo.channel('chat').listen('MessageCreated', function (e) {
+      _this3.getMessages(); // 全メッセージを再読込
+
+    });
   }
 });
 
