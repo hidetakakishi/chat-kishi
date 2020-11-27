@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div class="title">List</div>
         <table class="table table-hover">
             <thead class="thead-light">
             <tr>
@@ -36,6 +37,14 @@
         </table>
     </div>
 </template>
+
+<style>
+.title{
+    font-size: 40px;
+    margin: 10px;
+    text-align: center;
+}
+</style>
 
 <script>
 export default {

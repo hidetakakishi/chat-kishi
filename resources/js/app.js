@@ -6,6 +6,7 @@
 
 import VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent";
+import HeaderComponentV2 from "./components/HeaderComponent_v2";
 import TaskListComponent from "./components/TaskListComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
 import TaskCreateComponent from "./components/TaskCreateComponent";
@@ -69,6 +70,7 @@ const router = new VueRouter({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('header-component', HeaderComponent);
+Vue.component('header-component-v2', HeaderComponentV2);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

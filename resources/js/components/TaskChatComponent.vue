@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div class="title">Chat</div>
         <table class="table table-hover">
             <thead class="thead-light">
             <tr>
@@ -26,6 +27,14 @@
         </form>
     </div>
 </template>
+
+<style>
+.title{
+    font-size: 40px;
+    margin: 10px;
+    text-align: center;
+}
+</style>
 
 <script>
 export default {
