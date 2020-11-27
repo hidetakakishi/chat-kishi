@@ -19,7 +19,7 @@
                         <label for="person-in-charge" class="col-sm-3 col-form-label">Person In Charge</label>
                         <input type="text" class="col-sm-9 form-control" id="person-in-charge">
                     </div>
-                    <input type="text" class="col-sm-9 form-control" id="person-in-charge" v-model="task.person_in_charge">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

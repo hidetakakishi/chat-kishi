@@ -17,7 +17,7 @@ class ChatController extends Controller
     public function store(Request $request)
     {
         // return Message::create($request->all());
-        Log::debug($request);
+        // Log::debug($request);
         $message = Message::create([
             'body' => $request->body
         ]);

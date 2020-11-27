@@ -2020,20 +2020,20 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submit: function submit() {
-      var _this2 = this;
+      if (this.chat.body != null) {
+        axios.post('/api/chat', this.chat); // .then((res) => {
+        //     this.$router.push({name: 'task.chat.create'});
+        // });
 
-      axios.post('/api/chat', this.chat).then(function (res) {
-        _this2.$router.push({
-          name: 'task.chat.create'
-        });
-      });
-      this.getMessages();
+        this.chat = {};
+        this.getMessages();
+      }
     },
     deleteChat: function deleteChat(id) {
-      var _this3 = this;
+      var _this2 = this;
 
       axios["delete"]('/api/chat/' + id).then(function (res) {
-        _this3.getMessages();
+        _this2.getMessages();
       });
     }
   },
@@ -44191,7 +44191,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("create_at")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("削除")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("削除する")])
       ])
     ])
   }
@@ -44478,27 +44478,11 @@ var render = function() {
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.task.person_in_charge,
-                  expression: "task.person_in_charge"
-                }
-              ],
-              staticClass: "col-sm-9 form-control",
-              attrs: { type: "text", id: "person-in-charge" },
-              domProps: { value: _vm.task.person_in_charge },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.task, "person_in_charge", $event.target.value)
-                }
-              }
-            })
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            )
           ]
         )
       ])

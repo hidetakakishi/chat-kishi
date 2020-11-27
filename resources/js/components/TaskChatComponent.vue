@@ -6,7 +6,7 @@
                 <th scope="col">#</th>
                 <th scope="col">body</th>
                 <th scope="col">create_at</th>
-                <th scope="col">削除</th>
+                <th scope="col">削除する</th>
             </tr>
             </thead>
             <tbody>
@@ -43,18 +43,21 @@ export default {
                 });
         },
         submit() {
-            axios.post('/api/chat', this.chat)
-                .then((res) => {
-                    this.$router.push({name: 'task.chat.create'});
-                });
-            this.getMessages();
+            if(this.chat.body != null){
+                axios.post('/api/chat', this.chat);
+                // .then((res) => {
+                //     this.$router.push({name: 'task.chat.create'});
+                // });
+                this.chat = {};
+                this.getMessages();
+            }
         },
         deleteChat(id) {
             axios.delete('/api/chat/' + id)
                 .then((res) => {
                     this.getMessages();
                 });
-        }
+        },
     },
     mounted() {
         this.getMessages();
